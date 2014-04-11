@@ -107,7 +107,7 @@ function handler (req, res) {
 //
 mongo.Db.connect (uristring, function (err, db) { 
     console.log ("Attempting connection to " + mongoUrl.protocol + "//" + mongoUrl.hostname + " (complete URL supressed).");
-    db.collection ("messages4", function (err, collection) {
+    db.collection ("messages3", function (err, collection) {
 	collection.isCapped(function (err, capped) { 
 	    if (err) {
 		console.log ("Error when detecting capped collection.  Aborting.  Capped collections are necessary for tailed cursors.");
@@ -183,7 +183,7 @@ function readAndSend (socket, collection) {
 		socket.emit("rowfour", item); // sends to clients subscribe to type "standbytwo"
 	    }
 	});
-  });
+    });
     collection.find({"messagetype":"rowfive"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
 	cursor.intervalEach(300, function(err, item) {
 	    if(item != null) {
