@@ -1,4 +1,4 @@
-platform = process.env.PLATFORM ? process.env.PLATFORM : 'safe'
+platform = process.env.PLATFORM ? process.env.PLATFORM : 'heroku'
 
 config = {
   // Platform capabilities
@@ -6,7 +6,7 @@ config = {
     transports : ["xhr-polling"]
   },
   heroku : {
-    transports : ["xhr-polling"]
+    transports : ["websocket"]
   },
   joyent : {
     transports : ["websocket", "xhr-polling"]
