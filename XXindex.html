@@ -1,0 +1,407 @@
+<!doctype html>
+  <!-- 
+
+       Copyright 2012 ObjectLabs Corp.  
+
+       MIT License
+
+       Permission is hereby granted, free of charge, to any person
+       obtaining a copy of this software and associated documentation files
+       (the "Software"), to deal in the Software without restriction,
+       including without limitation the rights to use, copy, modify, merge,
+       publish, distribute, sublicense, and/or sell copies of the Software,
+       and to permit persons to whom the Software is furnished to do so,
+       subject to the following conditions:  
+
+       The above copyright notice and this permission notice shall be
+       included in all copies or substantial portions of the Software. 
+
+       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+       EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+       MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+       NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+       BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+       ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+       CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+       SOFTWARE. 
+
+       TITLE
+       Tractor Push: Node.js, socket.io, Ruby, MongoDB tailed cursor
+       demo
+       index.html - main client code.  Opens up a socket.io connection
+       to server and displays returned data dynamically.
+
+       by Ben Wen, ObjectLabs
+
+       ObjectLabs is the maker of MongoLab.com a cloud MongoDb-as-a-Service
+       provider.
+
+-->
+<html xmlns='http://www.w3.org/1999/xhtml'>
+    <head>
+      <meta content='text/html;charset=utf-8'/>
+      <link href='http://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css' />
+      <style>
+	    body { background-color: #ddd; font-family: 'Arimo', helvetica neue, arial, sans-serif; margin-left: 15px; color: #000}
+	    h1   { font-size: 30px; margin: 5px; float: right; text-align: right; color: #d33 }
+	    h2   { font-size: 20px; margin: 5px; float: right; text-align: right }
+	    h3   { font-size: 25px; margin-top: 10px; margin-left: 8px; text-align: center}
+	    li   { font-size: 12px; margin-top: 0px; margin-left: 5px }
+	    pre  { font-family: arimo, helvetica neue, arial, sans-serif }
+
+	    .container    { position: relative; padding: 10px; height: 225px; width: 250px; } 
+	    .content      { background-color: white; position: absolute; width: 225px; border: solid 1px #99c; margin: 5px; height: 225px; -moz-box-shadow: 10px 10px 5px #322; -webkit-box-shadow: 2px 3px 5px #322; box-shadow: 10px 10px 5px #322; }
+	    .innercontent { margin: 1%; padding: 2px; background-color: white; }
+
+	    .titlebox   { width: 300px; float: right; padding: 5px; border: solid 1px #99c; background-color: #fff; }
+	    .descript   { width: 600px; position: relative; padding: 25px; margin: 5px; border: solid 1px #99c; background-color: white; -moz-box-shadow: 10px 10px 5px #322; -webkit-box-shadow: 2px 3px 5px #322; box-shadow: 10px 10px 5px #322; }
+	    .backimg    { width: 100%; position: fixed; left: 0px; top: 0px; z-index: -1; }
+	    .fillscreen { width: 100%; }
+
+
+	  </style>
+	  <title>ACCDN TRANSCODE</title>
+	<script src='/socket.io/socket.io.js'></script> 
+        <script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"
+            data-dojo-config='async: true'>
+        </script>
+
+        <script>
+	    // require the dom resource
+	    require(['dojo/dom', 'dojo/date/locale', 'dojo/domReady!'], function(dom) {
+
+
+	    function dateFormat(date, format) { return dojo.date.locale.format( date, {selector: 'date', datePattern:format });}
+	    function strip_id(key, value)  { return key == '_id' ? undefined : value; }
+
+	    var socket = io.connect('/');
+	    socket.on('serverone', function (data) {
+	    oneone = dom.byId('oneone');
+	    oneone.innerHTML = data.fname;
+	    onetwo = dom.byId('onetwo');
+	    onetwo.innerHTML = data.destination;
+	    onethree = dom.byId('onethree');
+	    thisDate = new Date (data.time);
+	    onethree.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbyone', function (data) {
+	    s1one = dom.byId('s1one');
+	    s1one.innerHTML = data.fname;
+	    s1two = dom.byId('s1two');
+	    s1two.innerHTML = data.destination;
+	    s1three = dom.byId('s1three');
+	    thisDate = new Date (data.time);
+	    s1three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('servertwo', function (data) {
+	    twoone = dom.byId('twoone');
+	    twoone.innerHTML = data.fname;
+	    twotwo = dom.byId('twotwo');
+	    twotwo.innerHTML = data.destination;
+	    twothree = dom.byId('twothree');
+	    thisDate = new Date (data.time);
+	    twothree.innerHTML = data.status;
+	    //twofour = dom.byId('twofour');
+	    //twofour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbytwo', function (data) {
+	    s2one = dom.byId('s2one');
+	    s2one.innerHTML = data.fname;
+	    s2two = dom.byId('s2two');
+	    s2two.innerHTML = data.destination;
+	    s2three = dom.byId('s2three');
+	    thisDate = new Date (data.time);
+	    s2three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('serverthree', function (data) {
+	    threeone = dom.byId('threeone');
+	    threeone.innerHTML = data.fname;
+	    threetwo = dom.byId('threetwo');
+	    threetwo.innerHTML = data.destination;
+	    threethree = dom.byId('threethree');
+	    thisDate = new Date (data.time);
+	    threethree.innerHTML = data.status;
+	    //threefour = dom.byId('threefour');
+	    //threefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbythree', function (data) {
+	    s3one = dom.byId('s3one');
+	    s3one.innerHTML = data.fname;
+	    s3two = dom.byId('s3two');
+	    s3two.innerHTML = data.destination;
+	    s3three = dom.byId('s3three');
+	    thisDate = new Date (data.time);
+	    s3three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('serverfour', function (data) {
+	    fourone = dom.byId('fourone');
+	    fourone.innerHTML = data.fname;
+	    fourtwo = dom.byId('fourtwo');
+	    fourtwo.innerHTML = data.destination;
+	    fourthree = dom.byId('fourthree');
+	    thisDate = new Date (data.time);
+	    fourthree.innerHTML =  data.status;
+	    //fourfour = dom.byId('fourfour');
+	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbyfour', function (data) {
+	    s4one = dom.byId('s4one');
+	    s4one.innerHTML = data.fname;
+	    s4two = dom.byId('s4two');
+	    s4two.innerHTML = data.destination;
+	    s4three = dom.byId('s4three');
+	    thisDate = new Date (data.time);
+	    s4three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('serverfive', function (data) {
+	    fiveone = dom.byId('fiveone');
+	    fiveone.innerHTML = data.fname;
+	    fivetwo = dom.byId('fivetwo');
+	    fivetwo.innerHTML = data.destination;
+	    fivethree = dom.byId('fivethree');
+	    thisDate = new Date (data.time);
+	    fivethree.innerHTML =  data.status;
+	    //fourfour = dom.byId('fourfour');
+	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbyfive', function (data) {
+	    s5one = dom.byId('s5one');
+	    s5one.innerHTML = data.fname;
+	    s5two = dom.byId('s5two');
+	    s5two.innerHTML = data.destination;
+	    s5three = dom.byId('s5three');
+	    thisDate = new Date (data.time);
+	    s5three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	     socket.on('serversix', function (data) {
+	    sixone = dom.byId('sixone');
+	    sixone.innerHTML = data.fname;
+	    sixtwo = dom.byId('sixtwo');
+	    sixtwo.innerHTML = data.destination;
+	    sixthree = dom.byId('sixthree');
+	    thisDate = new Date (data.time);
+	    sixthree.innerHTML =  data.status;
+	    //fourfour = dom.byId('fourfour');
+	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbysix', function (data) {
+	    s6one = dom.byId('s6one');
+	    s6one.innerHTML = data.fname;
+	    s6two = dom.byId('s6two');
+	    s6two.innerHTML = data.destination;
+	    s6three = dom.byId('s6three');
+	    thisDate = new Date (data.time);
+	    s6three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    });
+        </script>
+        
+    </head>
+    <body>
+      <!-- Background
+
+      <div class="backimg">
+         <img class="fillscreen" alt='Tractor Engine, Copyright 2011 Ben Wen CC
+          BY-SA 3.0' src=""/> 
+      </div>
+	-->
+	<!-- 
+      <div class="titlebox">
+	<h1>Tractor Push</h1>
+	<h2> 
+	MongoDB <br/>
+	Tailable <br/> 
+	Cursor and <br/> 
+	Socket.IO Demo <br/>
+	from ACCDN 
+      </h2>
+      </div>
+	-->
+      <div class='container'>
+	<div class='content' style='top: 0; left: 0'>
+	  <div class='innercontent'>
+       <h3>VOD ONE</h3>
+      <ul>
+	    <li id='oneone'>--</li>
+	    <li id='onetwo'>--</li>
+	    <li id='onethree'>--</li>
+	    <!-- <li id='onefour'>--</li> -->
+	
+	  </ul>
+	  <ul>
+	    <li id='s1one'></li>
+	    <li id='s1two'></li>
+	    <li id='s1three'></li>
+
+
+	    <!-- <li id='onefour'>--</li> -->
+	
+	  </ul>
+	  </div>
+	</div>
+	<div class='content' style='top: 0; left: 250px'>
+	  <div class='innercontent'>
+      <h3>VOD TWO</h3>
+      <ul>
+	    <li id='twoone'>--</li>
+	    <li id='twotwo'>--</li>
+	    <li id='twothree'>--</li>
+	    <!--<li id='twofour'>--</li> -->
+	
+	  </ul>
+	  <ul>
+	    <li id='s2one'></li>
+	    <li id='s2two'></li>
+	    <li id='s2three'></li>
+	    <!-- <li id='onefour'>--</li> -->
+	
+	  </ul>
+	  </div>
+	</div>
+      	<div class='content' style='top: 0; left: 500px'>
+	  <div class='innercontent'>
+      <h3>OOYALA</h3>
+      <ul>
+	    <li id='threeone'>--</li>
+	    <li id='threetwo'>--</li>
+	    <li id='threethree'>--</li>
+	    
+	    
+	  </ul>
+	  <ul>
+	    <li id='s3one'></li>
+	    <li id='s3two'></li>
+	    <li id='s3three'></li>
+	    <!-- <li id='onefour'>--</li> -->
+	
+	  </ul>
+
+	  </div>
+	</div>
+	
+	<div class='content' style='top: 0; left: 750px'>
+	  <div class='innercontent'>
+      <h3>YOUTUBE</h3>
+      <ul>
+	    <li id='fourone'>--</li>
+	    <li id='fourtwo'>--</li>
+	    <li id='fourthree'>--</li>
+	    
+	    
+	  </ul>
+	  <ul>
+	    <li id='s4one'></li>
+	    <li id='s4two'></li>
+	    <li id='s4three'></li>
+	    <!-- <li id='onefour'>--</li> -->
+	
+	  </ul>
+	  </div>
+	</div>
+      	<div class='content' style='top: 0px; left: 1000px'>
+	  <div class='innercontent'>
+      <h3>FACEBOOK</h3>
+      <ul>
+	    <li id='fiveone'>--</li>
+	    <li id='fivetwo'>--</li>
+	    <li id='fivethree'>--</li>
+	    
+	    
+	  </ul>
+	  <ul>
+	    <li id='s5one'></li>
+	    <li id='s5two'></li>
+	    <li id='s5three'></li>
+	    <!-- <li id='onefour'>--</li> -->
+	
+	  </ul>
+	  </div>
+	</div>
+
+		<div class='content' style='top: 0px; left: 1250px'>
+	  <div class='innercontent'>
+      <h3>NON_UPLOAD</h3>
+      <ul>
+	    <li id='sixone'>--</li>
+	    <li id='sixtwo'>--</li>
+	    <li id='sixthree'>--</li>
+	    
+	    
+	  </ul>
+	  <ul>
+	    <li id='s6ne'></li>
+	    <li id='s6two'></li>
+	    <li id='s6three'></li>
+	    <!-- <li id='onefour'>--</li> -->
+	
+	  </ul>
+	  </div>
+	</div>
+	
+      </div>
+
+	<!--
+      <div class='descript'>
+      This demonstration of a Socket.IO client accepts two message streams from a server asynchronously.  The left box is updated on the arrival of the 'all messages' stream.  Messages can be one of three types: simple, array, or complex.  The right box is updated from a message stream of only the 'complex' type.  The streams are independent but draw from the same source.
+	
+<p> The server is running Node.js and uses Socket.IO.  It reads from a MongoDB capped collection using a tailable cursor.  The tailable cursor allows the server to pick up changes to the database dynamically.  A separate writer process writes to the database.
+	
+<p> The server components have been tested on Heroku's Celedon Cedar stack and Joyent's Cloud.  The MongoDB database is hosted at MongoLab.  Code at<br/>
+	  <a href="https://github.com/mongolab/tractorpush-server">https://github.com/mongolab/tractorpush-server</a>,<br/>
+	  <a href="https://github.com/mongolab/tractorpush-writer-ruby">https://github.com/mongolab/tractorpush-writer-ruby</a>, and<br/>
+	  <a href="https://github.com/mongolab/tractorpush-writer-node">https://github.com/mongolab/tractorpush-writer-node</a>.<br/>
+
+	
+	
+<p> Original Demo: 2012 March.  Updated 2013 March.
+<p> 
+	Copyright 2012, 2013 ObjectLabs Corp.  
+	
+<p>	MIT License
+
+	
+<p>	Permission is hereby granted, free of charge, to any person
+	obtaining a copy of this software and associated documentation files
+	(the "Software"), to deal in the Software without restriction,
+	including without limitation the rights to use, copy, modify, merge,
+	publish, distribute, sublicense, and/or sell copies of the Software,
+	and to permit persons to whom the Software is furnished to do so,
+	subject to the following conditions:  
+
+<p>	The above copyright notice and this permission notice shall be
+	included in all copies or substantial portions of the Software. 
+
+<p>	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+	BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+	ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE. 
+
+<p>    Non-code content licensed under Creative Commons
+       Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0) at
+       http://creativecommons.org/licenses/by-sa/3.0/
+
+
+</div>
+
+-->
+
+    </body>
+</html>
