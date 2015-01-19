@@ -11,7 +11,7 @@
 // ObjectLabs is the maker of MongoLab.com a cloud, hosted MongoDb
 // service
 
-// Copyright 2012 ObjectLabs Corp.  
+// Copyright 2014 ObjectLabs Corp.  
 
 // MIT License, except intervalEach()
 
@@ -60,23 +60,16 @@
 // really it's a TODO.
 //
 
-
-//require('newrelic');
-
-
 var fs = require("fs"), 
 url = require("url"),
 emitter = require("events").EventEmitter,
 assert = require("assert"),
 
 mongo = require("mongodb"),
-config = require("./config").config,
-QueryCommand = mongo.QueryCommand,
-Cursor = mongo.Cursor,
-Collection = mongo.Collection;
+Cursor = mongo.Cursor;
 
 // Heroku-style environment variables
-var uristring = process.env.MONGOLAB_URI || "mongodb://localhost/testdatabase" 
+var uristring = process.env.MONGOLAB_URI || "mongodb://localhost/testdatabase"; 
 var mongoUrl = url.parse (uristring);
 
 //
@@ -105,9 +98,9 @@ function handler (req, res) {
 // Open mongo database connection
 // A capped collection is needed to use tailable cursors
 //
-mongo.Db.connect (uristring, function (err, db) { 
+mongo.MongoClient.connect (uristring, function (err, db) { 
     console.log ("Attempting connection to " + mongoUrl.protocol + "//" + mongoUrl.hostname + " (complete URL supressed).");
-    db.collection ("messages3", function (err, collection) {
+    db.collection ("messages9", function (err, collection) {
 	collection.isCapped(function (err, capped) { 
 	    if (err) {
 		console.log ("Error when detecting capped collection.  Aborting.  Capped collections are necessary for tailed cursors.");
@@ -129,15 +122,6 @@ mongo.Db.connect (uristring, function (err, db) {
 function startIOServer (collection) {
     console.log("Starting ...");
 
-    // Many hosted environments do not support all transport forms currently, (specifically WebSockets).
-    // So we force a relatively safe xhr-polling transport.
-    // Modify io.configure call to allow other transports.
-
-    io.configure(function () { 
-    	io.set("transports", config[platform].transports); // Set config in ./config.js
-    	io.set("polling duration", 10); 
-	io.set("log level", 2);
-    });
     io.sockets.on("connection", function (socket) {
 	readAndSend(socket, collection);
     });
@@ -150,89 +134,92 @@ function startIOServer (collection) {
 // (known bug: if there are no documents in the collection, it doesn't work.)
 //
 function readAndSend (socket, collection) {
-//    collection.find({}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-//	cursor.intervalEach(300, function(err, item) { // intervalEach() is a duck-punched version of each() that waits N milliseconds     between each iteration.
-//	    if(item != null) {
-//		socket.emit("all", item); // sends to clients subscribed to type "all"
-//	    }
-//	});
-//    });
-    collection.find({"messagetype":"rowone"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-	cursor.intervalEach(300, function(err, item) {
+    collection.find({"messagetype":"serverone"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(300, function(err, item) { // intervalEach() is a duck-punched version of each() that waits N milliseconds between each iteration.
 	    if(item != null) {
-		socket.emit("rowone", item); // sends to clients subscribe to type "serverone"
+		socket.emit("serverone", item); //sends to clients subscribed to type "all"
 	    }
 	});
     });
-    collection.find({"messagetype":"rowtwo"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-	cursor.intervalEach(300, function(err, item) {
+    collection.find({"messagetype":"standbyone"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(900, function(err, item) {
 	    if(item != null) {
-		socket.emit("rowtwo", item); // sends to clients subscribe to type "standbyone"
-	    }
-	});
-    });collection.find({"messagetype":"rowthree"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-	cursor.intervalEach(300, function(err, item) {
-	    if(item != null) {
-		socket.emit("rowthree", item); // sends to clients subscribe to type "servertwo"
+		socket.emit("standbyone", item); // sends to clients subscribe to type "complex"
 	    }
 	});
     });
-    collection.find({"messagetype":"rowfour"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-	cursor.intervalEach(300, function(err, item) {
+     collection.find({"messagetype":"servertwo"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(300, function(err, item) { // intervalEach() is a duck-punched version of each() that waits N milliseconds between each iteration.
 	    if(item != null) {
-		socket.emit("rowfour", item); // sends to clients subscribe to type "standbytwo"
+		socket.emit("servertwo", item); //sends to clients subscribed to type "all"
 	    }
 	});
     });
-    collection.find({"messagetype":"rowfive"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-	cursor.intervalEach(300, function(err, item) {
+    collection.find({"messagetype":"standbytwo"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(900, function(err, item) {
 	    if(item != null) {
-		socket.emit("rowfive", item); // sends to clients subscribe to type "serverthree"
+		socket.emit("standbytwo", item); // sends to clients subscribe to type "complex"
 	    }
 	});
     });
-    collection.find({"messagetype":"rowsix"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-	cursor.intervalEach(300, function(err, item) {
+     collection.find({"messagetype":"serverthree"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(300, function(err, item) { // intervalEach() is a duck-punched version of each() that waits N milliseconds between each iteration.
 	    if(item != null) {
-		socket.emit("rowsix", item); // sends to clients subscribe to type "serverfour"
-	    }
-	});
-	});
-    collection.find({"messagetype":"rowseven"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-	cursor.intervalEach(300, function(err, item) {
-	    if(item != null) {
-		socket.emit("rowseven", item); // sends to clients subscribe to type "serverfive"
+		socket.emit("serverthree", item); //sends to clients subscribed to type "all"
 	    }
 	});
     });
-    collection.find({"messagetype":"roweight"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-	cursor.intervalEach(300, function(err, item) {
+    collection.find({"messagetype":"standbythree"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(900, function(err, item) {
 	    if(item != null) {
-		socket.emit("roweight", item); // sends to clients subscribe to type "serverfive"
+		socket.emit("standbythree", item); // sends to clients subscribe to type "complex"
 	    }
 	});
     });
-    collection.find({"messagetype":"rownine"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-	cursor.intervalEach(300, function(err, item) {
+     collection.find({"messagetype":"serverfour"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(300, function(err, item) { // intervalEach() is a duck-punched version of each() that waits N milliseconds between each iteration.
 	    if(item != null) {
-		socket.emit("rownine", item); // sends to clients subscribe to type "serverfive"
+		socket.emit("serverfour", item); //sends to clients subscribed to type "all"
 	    }
 	});
     });
-    collection.find({"messagetype":"rowten"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-	cursor.intervalEach(300, function(err, item) {
+    collection.find({"messagetype":"standbyfour"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(900, function(err, item) {
 	    if(item != null) {
-		socket.emit("rownine", item); // sends to clients subscribe to type "serverfive"
+		socket.emit("standbyfour", item); // sends to clients subscribe to type "complex"
 	    }
 	});
     });
-    collection.find({"messagetype":"serverstatus"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
-	cursor.intervalEach(300, function(err, item) {
+     collection.find({"messagetype":"serverfive"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(300, function(err, item) { // intervalEach() is a duck-punched version of each() that waits N milliseconds between each iteration.
 	    if(item != null) {
-		socket.emit("serverstatus", item); // sends to clients subscribe to type "serverfive"
+		socket.emit("serverfive", item); //sends to clients subscribed to type "all"
 	    }
 	});
     });
+    collection.find({"messagetype":"standbyfive"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(900, function(err, item) {
+	    if(item != null) {
+		socket.emit("standbyfive", item); // sends to clients subscribe to type "complex"
+	    }
+	});
+    });
+     collection.find({"messagetype":"serversix"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(300, function(err, item) { // intervalEach() is a duck-punched version of each() that waits N milliseconds between each iteration.
+	    if(item != null) {
+		socket.emit("serversix", item); //sends to clients subscribed to type "all"
+	    }
+	});
+    });
+    collection.find({"messagetype":"standbysix"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(900, function(err, item) {
+	    if(item != null) {
+		socket.emit("standbysix", item); // sends to clients subscribe to type "complex"
+	    }
+	});
+    });
+
+
 };
 	
 
