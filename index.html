@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
-		<title> SmartAdmin </title>
+		<title> ACCDN TRANSCODER </title>
 		<meta name="description" content="">
 		<meta name="author" content="">
 			
@@ -14,13 +14,13 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="https://s3.amazonaws.com/accdn-cms/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="https://s3.amazonaws.com/accdn-cms/css/font-awesome.min.css">
 
-		<!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+		<link rel="stylesheet" type="text/css" media="screen" href="https://s3.amazonaws.com/accdn-cms/css/smartadmin-production-plugins.min.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="https://s3.amazonaws.com/accdn-cms/css/smartadmin-production.min.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="https://s3.amazonaws.com/accdn-cms/css/smartadmin-skins.min.css">
 
-		<!-- SmartAdmin RTL Support is under construction
-			 This RTL CSS will be released in version 1.5
-		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"> -->
+		<!-- SmartAdmin RTL Support  -->
+		<link rel="stylesheet" type="text/css" media="screen" href="https://s3.amazonaws.com/accdn-cms/css/smartadmin-rtl.min.css">
 
 		<!-- We recommend you use "your_style.css" to override SmartAdmin
 		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
@@ -30,38 +30,82 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="https://s3.amazonaws.com/accdn-cms/css/demo.min.css">
 
 		<!-- FAVICONS -->
-		<link rel="shortcut icon" href="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/favicon/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/favicon/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="https://s3.amazonaws.com/accdn-cms/img/favicon/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="https://s3.amazonaws.com/accdn-cms/img/favicon/favicon.ico" type="image/x-icon">
 
 		<!-- GOOGLE FONT -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
 		<!-- Specifying a Webpage Icon for Web Clip 
 			 Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
-		<link rel="apple-touch-icon" href="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/splash/sptouch-icon-iphone.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/splash/touch-icon-ipad.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/splash/touch-icon-iphone-retina.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/splash/touch-icon-ipad-retina.png">
+		<link rel="apple-touch-icon" href="https://s3.amazonaws.com/accdn-cms/img/splash/sptouch-icon-iphone.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="https://s3.amazonaws.com/accdn-cms/img/splash/touch-icon-ipad.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="https://s3.amazonaws.com/accdn-cms/img/splash/touch-icon-iphone-retina.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="https://s3.amazonaws.com/accdn-cms/img/splash/touch-icon-ipad-retina.png">
 		
 		<!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		
 		<!-- Startup image for web apps -->
-		<link rel="apple-touch-startup-image" href="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
-		<link rel="apple-touch-startup-image" href="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
-		<link rel="apple-touch-startup-image" href="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/splash/iphone.png" media="screen and (max-device-width: 320px)">
+		<link rel="apple-touch-startup-image" href="https://s3.amazonaws.com/accdn-cms/img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+		<link rel="apple-touch-startup-image" href="https://s3.amazonaws.com/accdn-cms/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+		<link rel="apple-touch-startup-image" href="https://s3.amazonaws.com/accdn-cms/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
 
 	</head>
+	
+	<!--
+
+	TABLE OF CONTENTS.
+	
+	Use search to find needed section.
+	
+	===================================================================
+	
+	|  01. #CSS Links                |  all CSS links and file paths  |
+	|  02. #FAVICONS                 |  Favicon links and file paths  |
+	|  03. #GOOGLE FONT              |  Google font link              |
+	|  04. #APP SCREEN / ICONS       |  app icons, screen backdrops   |
+	|  05. #BODY                     |  body tag                      |
+	|  06. #HEADER                   |  header tag                    |
+	|  07. #PROJECTS                 |  project lists                 |
+	|  08. #TOGGLE LAYOUT BUTTONS    |  layout buttons and actions    |
+	|  09. #MOBILE                   |  mobile view dropdown          |
+	|  10. #SEARCH                   |  search field                  |
+	|  11. #NAVIGATION               |  left panel & navigation       |
+	|  12. #RIGHT PANEL              |  right panel userlist          |
+	|  13. #MAIN PANEL               |  main panel                    |
+	|  14. #MAIN CONTENT             |  content holder                |
+	|  15. #PAGE FOOTER              |  page footer                   |
+	|  16. #SHORTCUT AREA            |  dropdown shortcuts area       |
+	|  17. #PLUGINS                  |  all scripts and plugins       |
+	
+	===================================================================
+	
+	-->
+	
+	<!-- #BODY -->
+	<!-- Possible Classes
+
+		* 'smart-style-{SKIN#}'
+		* 'smart-rtl'         - Switch theme mode to RTL
+		* 'menu-on-top'       - Switch to top navigation (no DOM change required)
+		* 'no-menu'			  - Hides the menu completely
+		* 'hidden-menu'       - Hides the main menu but still accessable by hovering over left edge
+		* 'fixed-header'      - Fixes the header
+		* 'fixed-navigation'  - Fixes the main menu
+		* 'fixed-ribbon'      - Fixes breadcrumb
+		* 'fixed-page-footer' - Fixes footer
+		* 'container'         - boxed layout mode (non-responsive: will not work with fixed-navigation & fixed-ribbon)
+	-->
 	<body class="">
-		<!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
 
 		<!-- HEADER -->
 		<header id="header">
 			<div id="logo-group">
 
 				<!-- PLACE YOUR LOGO HERE -->
-				<span id="logo"> <img src="https://s3.amazonaws.com/accdn-cms/logo.png" alt="SmartAdmin"> </span>
+				<span id="logo"> <img src="https://s3.amazonaws.com/accdn-cms/img/logo.png" alt="SmartAdmin"> </span>
 				<!-- END LOGO PLACEHOLDER -->
 
 				<!-- Note: The activity badge color changes when clicked and resets the number to 0
@@ -150,7 +194,7 @@
 				<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
 					<li class="">
 						<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown"> 
-							<img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/sunny.png" alt="John Doe" class="online" />  
+							<img src="https://s3.amazonaws.com/accdn-cms/img/avatars/sunny.png" alt="John Doe" class="online" />  
 						</a>
 						<ul class="dropdown-menu pull-right">
 							<li>
@@ -225,21 +269,63 @@
 					<span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
 				</div>
 				<!-- end fullscreen button -->
+				
+				<!-- #Voice Command: Start Speech -->
+				<div id="speech-btn" class="btn-header transparent pull-right hidden-sm hidden-xs">
+					<div> 
+						<a href="javascript:void(0)" title="Voice Command" data-action="voiceCommand"><i class="fa fa-microphone"></i></a> 
+						<div class="popover bottom"><div class="arrow"></div>
+							<div class="popover-content">
+								<h4 class="vc-title">Voice command activated <br><small>Please speak clearly into the mic</small></h4>
+								<h4 class="vc-title-error text-center">
+									<i class="fa fa-microphone-slash"></i> Voice command failed
+									<br><small class="txt-color-red">Must <strong>"Allow"</strong> Microphone</small>
+									<br><small class="txt-color-red">Must have <strong>Internet Connection</strong></small>
+								</h4>
+								<a href="javascript:void(0);" class="btn btn-success" onclick="commands.help()">See Commands</a> 
+								<a href="javascript:void(0);" class="btn bg-color-purple txt-color-white" onclick="$('#speech-btn .popover').fadeOut(50);">Close Popup</a> 
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end voice command -->
 
 				<!-- multiple lang dropdown : find all flags in the flags page -->
 				<ul class="header-dropdown-list hidden-xs">
 					<li>
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/blank.gif" class="flag flag-us" alt="United States"> <span> US </span> <i class="fa fa-angle-down"></i> </a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="https://s3.amazonaws.com/accdn-cms/img/blank.gif" class="flag flag-us" alt="United States"> <span> English (US) </span> <i class="fa fa-angle-down"></i> </a>
 						<ul class="dropdown-menu pull-right">
 							<li class="active">
-								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/blank.gif" class="flag flag-us" alt="United States"> US</a>
+								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/blank.gif" class="flag flag-us" alt="United States"> English (US)</a>
 							</li>
 							<li>
-								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/blank.gif" class="flag flag-es" alt="Spanish"> Spanish</a>
+								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/blank.gif" class="flag flag-fr" alt="France"> Français</a>
 							</li>
 							<li>
-								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/blank.gif" class="flag flag-de" alt="German"> German</a>
+								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/blank.gif" class="flag flag-es" alt="Spanish"> Español</a>
 							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/blank.gif" class="flag flag-de" alt="German"> Deutsch</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/blank.gif" class="flag flag-jp" alt="Japan"> 日本語</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/blank.gif" class="flag flag-cn" alt="China"> 中文</a>
+							</li>	
+							<li>
+								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/blank.gif" class="flag flag-it" alt="Italy"> Italiano</a>
+							</li>	
+							<li>
+								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/blank.gif" class="flag flag-pt" alt="Portugal"> Portugal</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/blank.gif" class="flag flag-ru" alt="Russia"> Русский язык</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/blank.gif" class="flag flag-kr" alt="Korea"> 한국어</a>
+							</li>						
+							
 						</ul>
 					</li>
 				</ul>
@@ -260,7 +346,7 @@
 				<span> <!-- User image size is adjusted inside CSS, it should stay as it --> 
 					
 					<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
-						<img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/sunny.png" alt="me" class="online" /> 
+						<img src="https://s3.amazonaws.com/accdn-cms/img/avatars/sunny.png" alt="me" class="online" /> 
 						<span>
 							john.doe 
 						</span>
@@ -271,18 +357,8 @@
 			</div>
 			<!-- end user info -->
 
-			<!-- NAVIGATION : This navigation is also responsive
-
-			To make this navigation dynamic please make sure to link the node
-			(the reference to the nav > ul) after page load. Or the navigation
-			will not initialize.
-			-->
+			<!-- NAVIGATION : This navigation is also responsive-->
 			<nav>
-				<!-- NOTE: Notice the gaps after each icon usage <i></i>..
-				Please note that these links work a bit different than
-				traditional href="" links. See documentation for details.
-				-->
-
 				<ul>
 					<li class="active">
 						<a href="index.html" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
@@ -303,7 +379,10 @@
 								<a href="inline-charts.html">Inline Charts</a>
 							</li>
 							<li>
-								<a href="dygraphs.html">Dygraphs <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
+								<a href="dygraphs.html">Dygraphs</a>
+							</li>
+							<li>
+								<a href="chartjs.html">Chart.js <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
 							</li>
 						</ul>
 					</li>
@@ -335,6 +414,9 @@
 							</li>
 							<li>
 								<a href="bootstrap-forms.html">Bootstrap Form Elements</a>
+							</li>
+							<li>
+								<a href="bootstrap-validator.html">Bootstrap Form Validation</a>
 							</li>
 							<li>
 								<a href="plugins.html">Form Plugins</a>
@@ -447,7 +529,33 @@
 						<a href="widgets.html"><i class="fa fa-lg fa-fw fa-list-alt"></i> <span class="menu-item-parent">Widgets</span></a>
 					</li>
 					<li>
-						<a href="gallery.html"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">Gallery</span></a>
+						<a href="#"><i class="fa fa-lg fa-fw fa-puzzle-piece"></i> <span class="menu-item-parent">App Views</span></a>
+						<ul>
+							<li>
+								<a href="projects.html"><i class="fa fa-file-text-o"></i> Projects</a>
+							</li>
+							<li>
+								<a href="blog.html"><i class="fa fa-paragraph"></i> Blog</a>
+							</li>
+							<li>
+								<a href="gallery.html"><i class="fa fa-picture-o"></i> Gallery</a>
+							</li>
+
+							<li>
+								<a href="#"><i class="fa fa-comments"></i> Forum Layout</a>
+								<ul>
+									<li><a href="forum.html">General View</a></li>
+									<li><a href="forum-topic.html">Topic View</a></li>
+									<li><a href="forum-post.html">Post View</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="profile.html"><i class="fa fa-group"></i> Profile</a>
+							</li>
+							<li>
+								<a href="timeline.html"><i class="fa fa-clock-o"></i> Timeline</a>
+							</li>
+						</ul>		
 					</li>
 					<li>
 						<a href="gmap-xml.html"><i class="fa fa-lg fa-fw fa-map-marker"></i> <span class="menu-item-parent">GMap Skins</span><span class="badge bg-color-greenLight pull-right inbox-badge">9</span></a>
@@ -456,18 +564,7 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-windows"></i> <span class="menu-item-parent">Miscellaneous</span></a>
 						<ul>
 							<li>
-								<a href="#"><i class="fa fa-lg fa-fw fa-file"></i> Other Pages</a>
-								<ul>
-									<li>
-										<a href="forum.html">Forum Layout</a>
-									</li>
-									<li>
-										<a href="profile.html">Profile</a>
-									</li>
-									<li>
-										<a href="timeline.html">Timeline</a>
-									</li>
-								</ul>
+								<a href="http://bootstraphunter.com/smartadmin-landing/" target="_blank">Landing Page <i class="fa fa-external-link"></i></a>
 							</li>
 							<li>
 								<a href="pricing-table.html">Pricing Tables</a>
@@ -504,7 +601,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="top-menu-hidden">
+					<li class="top-menu-invisible">
 						<a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">SmartAdmin Intel</span></a>
 						<ul>
 							<li>
@@ -521,6 +618,147 @@
 							</li>
 						</ul>
 					</li>
+					<li class="chat-users top-menu-invisible">
+						<a href="#"><i class="fa fa-lg fa-fw fa-comment-o"><em class="bg-color-pink flash animated">!</em></i> <span class="menu-item-parent">Smart Chat API <sup>beta</sup></span></a>
+						<ul>
+							<li>
+								<!-- DISPLAY USERS -->
+								<div class="display-users">
+
+									<input class="form-control chat-user-filter" placeholder="Filter" type="text">
+									
+								  	<a href="#" class="usr" 
+									  	data-chat-id="cha1" 
+									  	data-chat-fname="Sadi" 
+									  	data-chat-lname="Orlaf" 
+									  	data-chat-status="busy" 
+									  	data-chat-alertmsg="Sadi Orlaf is in a meeting. Please do not disturb!" 
+									  	data-chat-alertshow="true" 
+									  	data-rel="popover-hover" 
+									  	data-placement="right" 
+									  	data-html="true" 
+									  	data-content="
+											<div class='usr-card'>
+												<img src='https://s3.amazonaws.com/accdn-cms/img/avatars/5.png' alt='Sadi Orlaf'>
+												<div class='usr-card-content'>
+													<h3>Sadi Orlaf</h3>
+													<p>Marketing Executive</p>
+												</div>
+											</div>
+										"> 
+									  	<i></i>Sadi Orlaf
+								  	</a>
+								  
+									<a href="#" class="usr" 
+										data-chat-id="cha2" 
+									  	data-chat-fname="Jessica" 
+									  	data-chat-lname="Dolof" 
+									  	data-chat-status="online" 
+									  	data-chat-alertmsg="" 
+									  	data-chat-alertshow="false" 
+									  	data-rel="popover-hover" 
+									  	data-placement="right" 
+									  	data-html="true" 
+									  	data-content="
+											<div class='usr-card'>
+												<img src='https://s3.amazonaws.com/accdn-cms/img/avatars/1.png' alt='Jessica Dolof'>
+												<div class='usr-card-content'>
+													<h3>Jessica Dolof</h3>
+													<p>Sales Administrator</p>
+												</div>
+											</div>
+										"> 
+									  	<i></i>Jessica Dolof
+									</a>
+								  
+									<a href="#" class="usr" 
+									  	data-chat-id="cha3" 
+									  	data-chat-fname="Zekarburg" 
+									  	data-chat-lname="Almandalie" 
+									  	data-chat-status="online" 
+									  	data-rel="popover-hover" 
+									  	data-placement="right" 
+									  	data-html="true" 
+									  	data-content="
+											<div class='usr-card'>
+												<img src='https://s3.amazonaws.com/accdn-cms/img/avatars/3.png' alt='Zekarburg Almandalie'>
+												<div class='usr-card-content'>
+													<h3>Zekarburg Almandalie</h3>
+													<p>Sales Admin</p>
+												</div>
+											</div>
+										"> 
+									  	<i></i>Zekarburg Almandalie
+									</a>
+								 
+									<a href="#" class="usr" 
+									  	data-chat-id="cha4" 
+									  	data-chat-fname="Barley" 
+									  	data-chat-lname="Krazurkth" 
+									  	data-chat-status="away" 
+									  	data-rel="popover-hover" 
+									  	data-placement="right" 
+									  	data-html="true" 
+									  	data-content="
+											<div class='usr-card'>
+												<img src='https://s3.amazonaws.com/accdn-cms/img/avatars/4.png' alt='Barley Krazurkth'>
+												<div class='usr-card-content'>
+													<h3>Barley Krazurkth</h3>
+													<p>Sales Director</p>
+												</div>
+											</div>
+										"> 
+									  	<i></i>Barley Krazurkth
+									</a>
+								  
+									<a href="#" class="usr offline" 
+									  	data-chat-id="cha5" 
+									  	data-chat-fname="Farhana" 
+									  	data-chat-lname="Amrin" 
+									  	data-chat-status="incognito" 
+									  	data-rel="popover-hover" 
+									  	data-placement="right" 
+									  	data-html="true" 
+									  	data-content="
+											<div class='usr-card'>
+												<img src='https://s3.amazonaws.com/accdn-cms/img/avatars/female.png' alt='Farhana Amrin'>
+												<div class='usr-card-content'>
+													<h3>Farhana Amrin</h3>
+													<p>Support Admin <small><i class='fa fa-music'></i> Playing Beethoven Classics</small></p>
+												</div>
+											</div>
+										"> 
+									  	<i></i>Farhana Amrin (offline)
+									</a>
+								  
+									<a href="#" class="usr offline" 
+										data-chat-id="cha6" 
+									  	data-chat-fname="Lezley" 
+									  	data-chat-lname="Jacob" 
+									  	data-chat-status="incognito" 
+									  	data-rel="popover-hover" 
+									  	data-placement="right" 
+									  	data-html="true" 
+									  	data-content="
+											<div class='usr-card'>
+												<img src='https://s3.amazonaws.com/accdn-cms/img/avatars/male.png' alt='Lezley Jacob'>
+												<div class='usr-card-content'>
+													<h3>Lezley Jacob</h3>
+													<p>Sales Director</p>
+												</div>
+											</div>
+										"> 
+									  	<i></i>Lezley Jacob (offline)
+									</a>
+									
+									<a href="ajax/chat.html" class="btn btn-xs btn-default btn-block sa-chat-learnmore-btn">About the API</a>
+
+								</div>
+								<!-- END DISPLAY USERS -->
+							</li>
+						</ul>	
+					</li>
+					
 				</ul>
 			</nav>
 			<span class="minifyme" data-action="minifyMenu"> 
@@ -917,28 +1155,28 @@
 											<div class="chat-list-body custom-scroll">
 												<ul id="chat-users">
 													<li>
-														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/5.png" alt="">Robin Berry <span class="badge badge-inverse">23</span><span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
+														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/avatars/5.png" alt="">Robin Berry <span class="badge badge-inverse">23</span><span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
 													</li>
 													<li>
-														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/male.png" alt="">Mark Zeukartech <span class="state"><i class="last-online pull-right">2hrs</i></span></a>
+														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/avatars/male.png" alt="">Mark Zeukartech <span class="state"><i class="last-online pull-right">2hrs</i></span></a>
 													</li>
 													<li>
-														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/male.png" alt="">Belmain Dolson <span class="state"><i class="last-online pull-right">45m</i></span></a>
+														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/avatars/male.png" alt="">Belmain Dolson <span class="state"><i class="last-online pull-right">45m</i></span></a>
 													</li>
 													<li>
-														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/male.png" alt="">Galvitch Drewbery <span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
+														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/avatars/male.png" alt="">Galvitch Drewbery <span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
 													</li>
 													<li>
-														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/male.png" alt="">Sadi Orlaf <span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
+														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/avatars/male.png" alt="">Sadi Orlaf <span class="state"><i class="fa fa-circle txt-color-green pull-right"></i></span></a>
 													</li>
 													<li>
-														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/male.png" alt="">Markus <span class="state"><i class="last-online pull-right">2m</i></span> </a>
+														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/avatars/male.png" alt="">Markus <span class="state"><i class="last-online pull-right">2m</i></span> </a>
 													</li>
 													<li>
-														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/sunny.png" alt="">Sunny <span class="state"><i class="last-online pull-right">2m</i></span> </a>
+														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/avatars/sunny.png" alt="">Sunny <span class="state"><i class="last-online pull-right">2m</i></span> </a>
 													</li>
 													<li>
-														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/male.png" alt="">Denmark <span class="state"><i class="last-online pull-right">2m</i></span> </a>
+														<a href="javascript:void(0);"><img src="https://s3.amazonaws.com/accdn-cms/img/avatars/male.png" alt="">Denmark <span class="state"><i class="last-online pull-right">2m</i></span> </a>
 													</li>
 												</ul>
 											</div>
@@ -966,7 +1204,7 @@
 										<div id="chat-body" class="chat-body custom-scroll">
 											<ul>
 												<li class="message">
-													<img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/5.png" class="online" alt="">
+													<img src="https://s3.amazonaws.com/accdn-cms/img/avatars/5.png" class="online" alt="">
 													<div class="message-text">
 														<time>
 															2014-01-13
@@ -981,7 +1219,7 @@
 														</p> </div>
 												</li>
 												<li class="message">
-													<img src="https://s3.amazonaws.com/accdn-cms/ADMIN/assets/images/avatars/sunny.png" class="online" alt="">
+													<img src="https://s3.amazonaws.com/accdn-cms/img/avatars/sunny.png" class="online" alt="">
 													<div class="message-text">
 														<time>
 															2014-01-13
@@ -1153,7 +1391,7 @@
 													<th>Country</th>
 													<th>Visits</th>
 													<th class="text-align-center">User Activity</th>
-													<th class="text-align-center">Online</th>
+													<th class="text-align-center hidden-xs">Online</th>
 													<th class="text-align-center">Demographic</th>
 												</tr>
 											</thead>
@@ -1165,7 +1403,7 @@
 													<div class="sparkline txt-color-blue text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
 														2700, 3631, 2471, 1300, 1877, 2500, 2577, 2700, 3631, 2471, 2000, 2100, 3000
 													</div></td>
-													<td class="text-align-center">143</td>
+													<td class="text-align-center hidden-xs">143</td>
 													<td class="text-align-center">
 													<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
 														17,83
@@ -1195,7 +1433,7 @@
 													<div class="sparkline txt-color-blue text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
 														1000, 1100, 3030, 1300, -1877, -2500, -2577, -2700, 3631, 2471, 4700, 1631, 2471
 													</div></td>
-													<td class="text-align-center">247</td>
+													<td class="text-align-center hidden-xs">247</td>
 													<td class="text-align-center">
 													<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
 														22,88
@@ -1225,7 +1463,7 @@
 													<div class="sparkline txt-color-blue text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
 														3631, 1471, 2400, 3631, 471, 1300, 1177, 2500, 2577, 3000, 4100, 3000, 7700
 													</div></td>
-													<td class="text-align-center">373</td>
+													<td class="text-align-center hidden-xs">373</td>
 													<td class="text-align-center">
 													<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
 														10,90
@@ -1255,7 +1493,7 @@
 													<div class="sparkline txt-color-blue text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
 														2700, 1877, 2500, 2577, 2000, 3631, 2471, -2700, -3631, 2471, 1300, 2100, 3000,
 													</div></td>
-													<td class="text-align-center">741</td>
+													<td class="text-align-center hidden-xs ">741</td>
 													<td class="text-align-center">
 													<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
 														34,66
@@ -1285,7 +1523,7 @@
 													<div class="sparkline txt-color-blue text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
 														1300, 1877, 2500, 2577, 2000, 2100, 3000, -2471, -2700, -3631, -2471, 2700, 3631
 													</div></td>
-													<td class="text-align-center">123</td>
+													<td class="text-align-center hidden-xs">123</td>
 													<td class="text-align-center">
 													<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
 														75,25
@@ -1315,7 +1553,7 @@
 													<div class="sparkline txt-color-orange text-align-center" data-sparkline-height="22px" data-sparkline-width="90px" data-sparkline-barwidth="2">
 														5, 34, 10, 1, 4, 6, -9, -1, 0, 0, 5, 6, 7
 													</div></td>
-													<td class="text-align-center">23</td>
+													<td class="text-align-center hidden-xs">23</td>
 													<td class="text-align-center">
 													<div class="sparkline display-inline" data-sparkline-type='pie' data-sparkline-piecolor='["#E979BB", "#57889C"]' data-sparkline-offset="90" data-sparkline-piesize="23px">
 														50,50
@@ -1493,7 +1731,7 @@
 		<div class="page-footer">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
-					<span class="txt-color-white">SmartAdmin WebApp © 2013-2014</span>
+					<span class="txt-color-white">SmartAdmin 1.5 <span class="hidden-xs"> - Web Application Framework</span> © 2014-2015</span>
 				</div>
 
 				<div class="col-xs-6 col-sm-6 text-right hidden-xs">
@@ -1551,22 +1789,22 @@
 		<div id="shortcut">
 			<ul>
 				<li>
-					<a href="#inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
+					<a href="inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
 				</li>
 				<li>
-					<a href="#calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
+					<a href="calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
 				</li>
 				<li>
-					<a href="#gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
+					<a href="gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
 				</li>
 				<li>
-					<a href="#invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
+					<a href="invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
 				</li>
 				<li>
-					<a href="#gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
+					<a href="gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
 				</li>
 				<li>
-					<a href="javascript:void(0);" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
+					<a href="profile.html" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
 				</li>
 			</ul>
 		</div>
@@ -1578,10 +1816,10 @@
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="https://s3.amazonaws.com/accdn-cms/js/plugin/pace/pace.min.js"></script>
 
 		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>
 			if (!window.jQuery) {
-				document.write('<script src="https://s3.amazonaws.com/accdn-cms/js/libs/jquery-2.0.2.min.js"><\/script>');
+				document.write('<script src="https://s3.amazonaws.com/accdn-cms/js/libs/jquery-2.1.1.min.js"><\/script>');
 			}
 		</script>
 
@@ -1592,8 +1830,11 @@
 			}
 		</script>
 
-		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events
-		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
+		<!-- IMPORTANT: APP CONFIG -->
+		<script src="https://s3.amazonaws.com/accdn-cms/js/app.config.js"></script>
+
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+		<script src="https://s3.amazonaws.com/accdn-cms/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
 
 		<!-- BOOTSTRAP JS -->
 		<script src="https://s3.amazonaws.com/accdn-cms/js/bootstrap/bootstrap.min.js"></script>
@@ -1605,7 +1846,7 @@
 		<script src="https://s3.amazonaws.com/accdn-cms/js/smartwidgets/jarvis.widget.min.js"></script>
 
 		<!-- EASY PIE CHARTS -->
-		<script src="https://s3.amazonaws.com/accdn-cms/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+		<script src="js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
 
 		<!-- SPARKLINES -->
 		<script src="https://s3.amazonaws.com/accdn-cms/js/plugin/sparkline/jquery.sparkline.min.js"></script>
@@ -1639,12 +1880,21 @@
 
 		<!-- MAIN APP JS FILE -->
 		<script src="https://s3.amazonaws.com/accdn-cms/js/app.min.js"></script>
+
+		<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+		<!-- Voice command : plugin -->
+		<script src="https://s3.amazonaws.com/accdn-cms/js/speech/voicecommand.min.js"></script>
+
+		<!-- SmartChat UI : plugin -->
+		<script src="https://s3.amazonaws.com/accdn-cms/js/smart-chat-ui/smart.chat.ui.min.js"></script>
+		<script src="https://s3.amazonaws.com/accdn-cms/js/smart-chat-ui/smart.chat.manager.min.js"></script>
 		
 		<!-- PAGE RELATED PLUGIN(S) -->
 		
 		<!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
 		<script src="https://s3.amazonaws.com/accdn-cms/js/plugin/flot/jquery.flot.cust.min.js"></script>
 		<script src="https://s3.amazonaws.com/accdn-cms/js/plugin/flot/jquery.flot.resize.min.js"></script>
+		<script src="https://s3.amazonaws.com/accdn-cms/js/plugin/flot/jquery.flot.time.min.js"></script>
 		<script src="https://s3.amazonaws.com/accdn-cms/js/plugin/flot/jquery.flot.tooltip.min.js"></script>
 		
 		<!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
@@ -1652,6 +1902,7 @@
 		<script src="https://s3.amazonaws.com/accdn-cms/js/plugin/vectormap/jquery-jvectormap-world-mill-en.js"></script>
 		
 		<!-- Full Calendar -->
+		<script src="https://s3.amazonaws.com/accdn-cms/js/plugin/moment/moment.min.js"></script>
 		<script src="https://s3.amazonaws.com/accdn-cms/js/plugin/fullcalendar/jquery.fullcalendar.min.js"></script>
 
 		<script>
