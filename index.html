@@ -52,45 +52,7 @@
 		<link rel="apple-touch-startup-image" href="https://s3.amazonaws.com/accdn-cms/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
 		<link rel="apple-touch-startup-image" href="https://s3.amazonaws.com/accdn-cms/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
 
-		<script src='/socket.io/socket.io.js'></script> 
-        <script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"
-            data-dojo-config='async: true'>
-        </script>
-
-        <!-- Socket.io Testing -->
-        <script>
-	    // require the dom resource
-	    require(['dojo/dom', 'dojo/date/locale', 'dojo/domReady!'], function(dom) {
-
-
-	    function dateFormat(date, format) { return dojo.date.locale.format( date, {selector: 'date', datePattern:format });}
-	    function strip_id(key, value)  { return key == '_id' ? undefined : value; }
-
-	    var socket = io.connect('/');
-	    socket.on('serverone', function (data) {
-	    oneone = dom.byId('oneone');
-	    oneone.innerHTML = data.fname;
-	    onetwo = dom.byId('onetwo');
-	    onetwo.innerHTML = data.destination;
-	    onethree = dom.byId('onethree');
-	    thisDate = new Date (data.time);
-	    onethree.innerHTML = data.status;
-	    //onefour = dom.byId('onefour');
-	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
-	    });
-	    socket.on('standbyone', function (data) {
-	    s1one = dom.byId('s1one');
-	    s1one.innerHTML = data.fname;
-	    s1two = dom.byId('s1two');
-	    s1two.innerHTML = data.destination;
-	    s1three = dom.byId('s1three');
-	    thisDate = new Date (data.time);
-	    s1three.innerHTML = data.status;
-	    //onefour = dom.byId('onefour');
-	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
-	    });
-	    });
-        </script>
+		
 
 	</head>
 	
@@ -2516,6 +2478,46 @@
 
 		</script>
 		-->
+
+		<script src='/socket.io/socket.io.js'></script> 
+        <script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"
+            data-dojo-config='async: true'>
+        </script>
+
+        <!-- Socket.io Testing -->
+        <script>
+	    // require the dom resource
+	    require(['dojo/dom', 'dojo/date/locale', 'dojo/domReady!'], function(dom) {
+
+
+	    function dateFormat(date, format) { return dojo.date.locale.format( date, {selector: 'date', datePattern:format });}
+	    function strip_id(key, value)  { return key == '_id' ? undefined : value; }
+
+	    var socket = io.connect('/');
+	    socket.on('serverone', function (data) {
+	    oneone = dom.byId('oneone');
+	    oneone.innerHTML = data.fname;
+	    onetwo = dom.byId('onetwo');
+	    onetwo.innerHTML = data.destination;
+	    onethree = dom.byId('onethree');
+	    thisDate = new Date (data.time);
+	    onethree.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbyone', function (data) {
+	    s1one = dom.byId('s1one');
+	    s1one.innerHTML = data.fname;
+	    s1two = dom.byId('s1two');
+	    s1two.innerHTML = data.destination;
+	    s1three = dom.byId('s1three');
+	    thisDate = new Date (data.time);
+	    s1three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    });
+        </script>
 
 	</body>
 
