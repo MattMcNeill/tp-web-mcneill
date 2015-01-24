@@ -926,7 +926,7 @@
 												<div class="show-stat-microcharts">
 													<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 
-														<div class="easy-pie-chart txt-color-orangeDark" data-percent="33" data-pie-size="50">
+														<div class="easy-pie-chart txt-color-orangeDark" data-percent='id= 'onefour'' data-pie-size="50">
 															<span class="percent percent-sign">35</span>
 														</div>
 														<span class="easy-pie-title"> Server Load <i class="fa fa-caret-up icon-color-bad"></i> </span>
@@ -2502,6 +2502,8 @@
 	    onethree = dom.byId('onethree');
 	    thisDate = new Date (data.time);
 	    onethree.innerHTML = data.status;
+	    onefour = dom.byId('onefour');
+	    onefour.innerHTML = data.cpu;
 	    //onefour = dom.byId('onefour');
 	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
