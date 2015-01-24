@@ -2603,6 +2603,50 @@
 	    //onefour = dom.byId('onefour');
 	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
+	    socket.on('serverfive', function (data) {
+	    fiveone = dom.byId('fiveone');
+	    fiveone.innerHTML = data.fname;
+	    fivetwo = dom.byId('fivetwo');
+	    fivetwo.innerHTML = data.destination;
+	    fivethree = dom.byId('fivethree');
+	    thisDate = new Date (data.time);
+	    fivethree.innerHTML =  data.status;
+	    //fourfour = dom.byId('fourfour');
+	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbyfive', function (data) {
+	    s5one = dom.byId('s5one');
+	    s5one.innerHTML = data.fname;
+	    s5two = dom.byId('s5two');
+	    s5two.innerHTML = data.destination;
+	    s5three = dom.byId('s5three');
+	    thisDate = new Date (data.time);
+	    s5three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	     socket.on('serversix', function (data) {
+	    sixone = dom.byId('sixone');
+	    sixone.innerHTML = data.fname;
+	    sixtwo = dom.byId('sixtwo');
+	    sixtwo.innerHTML = data.destination;
+	    sixthree = dom.byId('sixthree');
+	    thisDate = new Date (data.time);
+	    sixthree.innerHTML =  data.status;
+	    //fourfour = dom.byId('fourfour');
+	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbysix', function (data) {
+	    s6one = dom.byId('s6one');
+	    s6one.innerHTML = data.fname;
+	    s6two = dom.byId('s6two');
+	    s6two.innerHTML = data.destination;
+	    s6three = dom.byId('s6three');
+	    thisDate = new Date (data.time);
+	    s6three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
 	    });
         </script>
         
