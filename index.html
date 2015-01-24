@@ -2502,8 +2502,6 @@
 	    onethree = dom.byId('onethree');
 	    thisDate = new Date (data.time);
 	    onethree.innerHTML = data.status;
-	    onefour = dom.byId('onefour');
-	    onefour.innerHTML = data.cpu;
 	    //onefour = dom.byId('onefour');
 	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
@@ -2625,6 +2623,29 @@
 	    s6three = dom.byId('s6three');
 	    thisDate = new Date (data.time);
 	    s6three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    });
+	     socket.on('cpuone', function (data) {
+	    c1one = dom.byId('c1one');
+	    c1one.innerHTML = data.fname;
+	    c1two = dom.byId('c1two');
+	    c1two.innerHTML = data.destination;
+	    c1three = dom.byId('c1three');
+	    thisDate = new Date (data.time);
+	    c1hree.innerHTML =  data.status;
+	    //fourfour = dom.byId('fourfour');
+	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('cputwo', function (data) {
+	    c2one = dom.byId('c2one');
+	    c2one.innerHTML = data.fname;
+	    c2two = dom.byId('c2two');
+	    c2two.innerHTML = data.destination;
+	    c2three = dom.byId('c2three');
+	    thisDate = new Date (data.time);
+	    c2three.innerHTML = data.status;
 	    //onefour = dom.byId('onefour');
 	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
