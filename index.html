@@ -52,6 +52,156 @@
 		<link rel="apple-touch-startup-image" href="https://s3.amazonaws.com/accdn-cms/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
 		<link rel="apple-touch-startup-image" href="https://s3.amazonaws.com/accdn-cms/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
 
+		<script src='/socket.io/socket.io.js'></script> 
+        <script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"
+            data-dojo-config='async: true'>
+        </script>
+
+        <!-- Socket.io Testing -->
+        <script>
+	    // require the dom resource
+	    require(['dojo/dom', 'dojo/date/locale', 'dojo/domReady!'], function(dom) {
+
+
+	    function dateFormat(date, format) { return dojo.date.locale.format( date, {selector: 'date', datePattern:format });}
+	    function strip_id(key, value)  { return key == '_id' ? undefined : value; }
+
+	    var socket = io.connect('/');
+	    socket.on('serverone', function (data) {
+	    oneone = dom.byId('oneone');
+	    oneone.innerHTML = data.fname;
+	    onetwo = dom.byId('onetwo');
+	    onetwo.innerHTML = data.destination;
+	    onethree = dom.byId('onethree');
+	    thisDate = new Date (data.time);
+	    onethree.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbyone', function (data) {
+	    s1one = dom.byId('s1one');
+	    s1one.innerHTML = data.fname;
+	    s1two = dom.byId('s1two');
+	    s1two.innerHTML = data.destination;
+	    s1three = dom.byId('s1three');
+	    thisDate = new Date (data.time);
+	    s1three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('servertwo', function (data) {
+	    twoone = dom.byId('twoone');
+	    twoone.innerHTML = data.fname;
+	    twotwo = dom.byId('twotwo');
+	    twotwo.innerHTML = data.destination;
+	    twothree = dom.byId('twothree');
+	    thisDate = new Date (data.time);
+	    twothree.innerHTML = data.status;
+	    //twofour = dom.byId('twofour');
+	    //twofour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbytwo', function (data) {
+	    s2one = dom.byId('s2one');
+	    s2one.innerHTML = data.fname;
+	    s2two = dom.byId('s2two');
+	    s2two.innerHTML = data.destination;
+	    s2three = dom.byId('s2three');
+	    thisDate = new Date (data.time);
+	    s2three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('serverthree', function (data) {
+	    threeone = dom.byId('threeone');
+	    threeone.innerHTML = data.fname;
+	    threetwo = dom.byId('threetwo');
+	    threetwo.innerHTML = data.destination;
+	    threethree = dom.byId('threethree');
+	    thisDate = new Date (data.time);
+	    threethree.innerHTML = data.status;
+	    //threefour = dom.byId('threefour');
+	    //threefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbythree', function (data) {
+	    s3one = dom.byId('s3one');
+	    s3one.innerHTML = data.fname;
+	    s3two = dom.byId('s3two');
+	    s3two.innerHTML = data.destination;
+	    s3three = dom.byId('s3three');
+	    thisDate = new Date (data.time);
+	    s3three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('serverfour', function (data) {
+	    fourone = dom.byId('fourone');
+	    fourone.innerHTML = data.fname;
+	    fourtwo = dom.byId('fourtwo');
+	    fourtwo.innerHTML = data.destination;
+	    fourthree = dom.byId('fourthree');
+	    thisDate = new Date (data.time);
+	    fourthree.innerHTML =  data.status;
+	    //fourfour = dom.byId('fourfour');
+	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbyfour', function (data) {
+	    s4one = dom.byId('s4one');
+	    s4one.innerHTML = data.fname;
+	    s4two = dom.byId('s4two');
+	    s4two.innerHTML = data.destination;
+	    s4three = dom.byId('s4three');
+	    thisDate = new Date (data.time);
+	    s4three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('serverfive', function (data) {
+	    fiveone = dom.byId('fiveone');
+	    fiveone.innerHTML = data.fname;
+	    fivetwo = dom.byId('fivetwo');
+	    fivetwo.innerHTML = data.destination;
+	    fivethree = dom.byId('fivethree');
+	    thisDate = new Date (data.time);
+	    fivethree.innerHTML =  data.status;
+	    //fourfour = dom.byId('fourfour');
+	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbyfive', function (data) {
+	    s5one = dom.byId('s5one');
+	    s5one.innerHTML = data.fname;
+	    s5two = dom.byId('s5two');
+	    s5two.innerHTML = data.destination;
+	    s5three = dom.byId('s5three');
+	    thisDate = new Date (data.time);
+	    s5three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	     socket.on('serversix', function (data) {
+	    sixone = dom.byId('sixone');
+	    sixone.innerHTML = data.fname;
+	    sixtwo = dom.byId('sixtwo');
+	    sixtwo.innerHTML = data.destination;
+	    sixthree = dom.byId('sixthree');
+	    thisDate = new Date (data.time);
+	    sixthree.innerHTML =  data.status;
+	    //fourfour = dom.byId('fourfour');
+	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    socket.on('standbysix', function (data) {
+	    s6one = dom.byId('s6one');
+	    s6one.innerHTML = data.fname;
+	    s6two = dom.byId('s6two');
+	    s6two.innerHTML = data.destination;
+	    s6three = dom.byId('s6three');
+	    thisDate = new Date (data.time);
+	    s6three.innerHTML = data.status;
+	    //onefour = dom.byId('onefour');
+	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
+	    });
+	    });
+        </script>
+
 	</head>
 	
 	<!--
@@ -812,7 +962,18 @@
 							<li class="sparks-info">
 								<h5> My Income <span class="txt-color-blue">$47,171</span></h5>
 								<div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
-									1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
+									<ul>
+	    								<li id='oneone'>--</li>
+	    								<li id='onetwo'>--</li>
+	   									<li id='onethree'>--</li>
+	    
+	
+	  								</ul>
+									<ul>
+	    								<li id='s1one'></li>
+	  									<li id='s1two'></li>
+	    								<li id='s1three'></li>
+	    							</ul>
 								</div>
 							</li>
 							<li class="sparks-info">
