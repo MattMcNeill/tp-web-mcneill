@@ -217,6 +217,20 @@ function readAndSend (socket, collection) {
 		socket.emit("standbysix", item); // sends to clients subscribe to type "complex"
 	    }
 	});
+	});
+     collection.find({"messagetype":"cpuone"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(300, function(err, item) { // intervalEach() is a duck-punched version of each() that waits N milliseconds between each iteration.
+	    if(item != null) {
+		socket.emit("cpuone", item); //sends to clients subscribed to type "all"
+	    }
+	});
+    });
+    collection.find({"messagetype":"cputwo"}, {"tailable": 1, "sort": [["$natural", 1]]}, function(err, cursor) {
+	cursor.intervalEach(900, function(err, item) {
+	    if(item != null) {
+		socket.emit("cputwo", item); // sends to clients subscribe to type "complex"
+	    }
+	});
     });
 
 
