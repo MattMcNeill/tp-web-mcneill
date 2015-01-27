@@ -945,7 +945,7 @@
 												<div class="show-stat-microcharts">
 													<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 
-														<div class="easy-pie-chart txt-color-orangeDark" data-percent="id=c1one" data-pie-size="50">
+														<div class="easy-pie-chart txt-color-orangeDark" data-percent="22" data-pie-size="50">
 															<span class="percent percent-sign" id='c1one'>22%</span>
 														</div>
 														<span class="easy-pie-title"> Server Load <i class="fa fa-caret-up icon-color-bad"></i> </span>
@@ -2500,7 +2500,39 @@
 		</script>
 		-->
 
-		
+		 
+		<script type="text/javascript">
+		$(function() {
+		    //create instance
+		    $('.chart').easyPieChart({
+		        animate: 2000
+		    });
+		    //update instance after 5 sec
+		    setTimeout(function() {
+		        $('.chart').data('easyPieChart').update('c1one');
+		    }, 5000);
+		});
+		</script>
+		<!--
+		<script>
+		    var initCharts = function() {
+		      var charts = $('.percentage');
+		      charts.easyPieChart({
+		        animate: 1000,
+		        onStep: function(value) {
+		          this.$el.find('span').text(~~value);
+		        }
+		      });
+		      $('.updatePieCharts').on('click', function(e) {
+		        e.preventDefault();
+		        charts.each(function() {
+		          $(this).data('easyPieChart').update('c1one');
+		        });
+		      });
+		    }
+    </script>
+		-->
+
         
 
 	</body>
