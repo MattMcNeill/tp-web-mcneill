@@ -2482,62 +2482,7 @@
 
 		</script>
 
-		<!-- Your GOOGLE ANALYTICS CODE Below 
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-			_gaq.push(['_trackPageview']);
-
-			(function() {
-				var ga = document.createElement('script');
-				ga.type = 'text/javascript';
-				ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(ga, s);
-			})();
-
-		</script>
-		-->
-
-		 
-		<script type="text/javascript">
-		$(function() {
-		    //create instance
-		    $('.chart').easyPieChart({
-		        animate: 2000
-		    });
-		    //update instance after 5 sec
-		    setTimeout(function() {
-		        $('.chart').data('easyPieChart').update('c1one');
-		    }, 5000);
-		});
-		</script>
-		<!--
-		<script>
-		    var initCharts = function() {
-		      var charts = $('.percentage');
-		      charts.easyPieChart({
-		        animate: 1000,
-		        onStep: function(value) {
-		          this.$el.find('span').text(~~value);
-		        }
-		      });
-		      $('.updatePieCharts').on('click', function(e) {
-		        e.preventDefault();
-		        charts.each(function() {
-		          $(this).data('easyPieChart').update('c1one');
-		        });
-		      });
-		    }
-    </script>
-		-->
-
-        
-
-	</body>
-
-<!-- Socket.io Testing -->
+		<!-- Socket.io Testing -->
         
         <script src='/socket.io/socket.io.js'></script> 
         <script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"
@@ -2709,5 +2654,62 @@
 	    });
 	    });
         </script>
+
+		<!-- Your GOOGLE ANALYTICS CODE Below 
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		-->
+
+		 
+		<script type="text/javascript">
+		$(function() {
+		    //create instance
+		    $('.chart').easyPieChart({
+		        animate: 2000
+		    });
+		    //update instance after 5 sec
+		    setTimeout(function() {
+		        $('.chart').data('easyPieChart').update('c1one');
+		    }, 5000);
+		});
+		</script>
+		<!--
+		<script>
+		    var initCharts = function() {
+		      var charts = $('.percentage');
+		      charts.easyPieChart({
+		        animate: 1000,
+		        onStep: function(value) {
+		          this.$el.find('span').text(~~value);
+		        }
+		      });
+		      $('.updatePieCharts').on('click', function(e) {
+		        e.preventDefault();
+		        charts.each(function() {
+		          $(this).data('easyPieChart').update('c1one');
+		        });
+		      });
+		    }
+    </script>
+		-->
+
+        
+
+	</body>
+
+
 
 </html>
