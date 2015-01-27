@@ -945,8 +945,8 @@
 												<div class="show-stat-microcharts">
 													<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 
-														<div class="easy-pie-chart txt-color-orangeDark" data-pie-size="50" data-percent=<p id="c1one"></p>>
-															<span class="percent percent-sign" id="c1one">22%</span>
+														<div class="easy-pie-chart txt-color-orangeDark" data-pie-size="50" data-percent=<p id='c1one'></p>>
+															<span class="percent percent-sign" id='c1one'></span>
 														</div>
 														<span class="easy-pie-title"> Server Load <i class="fa fa-caret-up icon-color-bad"></i> </span>
 														<ul class="smaller-stat hidden-sm pull-right">
@@ -1952,15 +1952,14 @@
 	    //twofour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
 	    socket.on('cpuone', function (data) {
-	    document.getElementById("c1one").innerHTML = data.fname;
-	    
-	    
+	    document.getElementById("c1one").innerHTML = 75;
+	    	    
 	    //fourfour = dom.byId('fourfour');
 	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
 	    });
         </script>
-
+        
 		<!-- Your GOOGLE ANALYTICS CODE Below 
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
