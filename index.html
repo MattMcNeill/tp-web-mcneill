@@ -942,8 +942,8 @@
 												<div class="show-stat-microcharts">
 													<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 
-														<div class="easy-pie-chart txt-color-orangeDark" data-percent="75" data-pie-size="50">
-															<span class="percent percent-sign">75</span>
+														<div id="c1one" class="easy-pie-chart txt-color-orangeDark" data-percent="75" data-pie-size="50">
+															<span  class="percent percent-sign">75</span>
 														</div>
 														<span class="easy-pie-title"> Server Load <i class="fa fa-caret-up icon-color-bad"></i> </span>
 														<ul class="smaller-stat hidden-sm pull-right">
@@ -2651,7 +2651,7 @@
 	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
 	    socket.on('cpuone', function (data) {
-	    document.getElementById("c1one").data-percent = data.fname;
+	    document.getElementById("c1one").data-percent = "50";
 	    document.getElementById("c1two").innerHTML = data.fname;
 	    //fourfour = dom.byId('fourfour');
 	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
