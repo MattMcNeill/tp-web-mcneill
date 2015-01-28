@@ -1956,14 +1956,9 @@
 	    //twofour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
 	    socket.on('cpuone', function (data) {
-
 	    document.getElementById("c1one").data-percent = data.fname;
-
-	    var cpuper = document.getElementById("c1two");
-	    cpuper.innerHTML = data.fname;
-
-
-	    	    
+	    document.getElementById("c1two").innerHTML = data.fname;
+    	    
 	    //fourfour = dom.byId('fourfour');
 	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
