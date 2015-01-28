@@ -2651,13 +2651,8 @@
 	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
 	    socket.on('cpuone', function (data) {
-	    c1one = dom.byId('c1one');
-	    c1one.innerHTML = data.fname;
-	    c1two = dom.byId('c1two');
-	    c1two.innerHTML = data.destination;
-	    c1three = dom.byId('c1three');
-	    thisDate = new Date (data.time);
-	    c1three.innerHTML =  data.status;
+	    document.getElementById("c1one").data-percent = data.fname;
+	    document.getElementById("c1two").innerHTML = data.fname;
 	    //fourfour = dom.byId('fourfour');
 	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
