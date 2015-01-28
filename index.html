@@ -2651,8 +2651,8 @@
 	    //onefour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
 	    socket.on('cpuone', function (data) {
-	    document.getElementById("c1one").data-percent = 10;
-	    document.getElementById("c1two").innerHTML = 10;
+	    document.getElementById("c1one").data-percent = data.fname;
+	    document.getElementById("c1two").innerHTML = data.fname;
 	    //fourfour = dom.byId('fourfour');
 	    //fourfour.innerHTML = '<pre> Entire message: ' + JSON.stringify(data, strip_id, 2) + '</pre>'; 
 	    });
